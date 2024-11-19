@@ -9,15 +9,18 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-const mongooseUrl =process.env.MONGODB_URI ||  "mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-// Connect to MongoDB
+
+// Use environment variable or fallback
+const mongooseUrl = process.env.MONGODB_URI || "mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 console.log(mongooseUrl);
 
-mongoose.connect("mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // Connect to MongoDB
-  , { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongooseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+  .catch(err => {
+    console.error('Could not connect to MongoDB', err);
+    process.exit(1); // Exit process if MongoDB connection fails
+  });
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
