@@ -61,7 +61,7 @@ function LoginForm() {
           </button>
         </div>
         <hr className='my-5'/>
-        <p className='text-center'>Haven't Account <button href="/register" className='text-blue-800 font-semibold border-none' onClick={goLogin}>register</button></p>
+        <p className='text-center'>Haven't Account <button className='text-blue-800 font-semibold border-none' onClick={goLogin}>register</button></p>
         
       </form>
     </div>
