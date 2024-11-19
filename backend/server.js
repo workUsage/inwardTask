@@ -9,9 +9,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+const mongooseUrl =process.env.MONGODB_URI ||  "mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+console.log(mongooseUrl);
+
+mongoose.connect("mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+// Connect to MongoDB
+  , { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB', err));
 
