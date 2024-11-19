@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import logoImage from '../assets/img_magnet_logo_11_1.png'
 
 function LoginForm() {
@@ -61,7 +62,7 @@ function LoginForm() {
           </button>
         </div>
         <hr className='my-5'/>
-        <p className='text-center'>Haven't Account <button className='text-blue-800 font-semibold border-none' onClick={goLogin}>register</button></p>
+        <p className='text-center'>Haven't Account <Link to="/register" className='font-semibold text-blue-500'>Register</Link> </p>
         
       </form>
     </div>
