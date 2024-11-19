@@ -18,7 +18,7 @@ function TaskForm({ users, onTaskCreated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/tasks', task, {
+      await axios.post('https://inwardtask-server.onrender.com/api/tasks', task, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       onTaskCreated();

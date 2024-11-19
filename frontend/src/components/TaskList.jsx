@@ -12,7 +12,7 @@ function TaskList({ tasks, onAccept, onForward, onComplete, onFail }) {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/users', {
+      const response = await axios.get('https://inwardtask-server.onrender.com/api/auth/users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setUsers(response.data);

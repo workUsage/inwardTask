@@ -13,7 +13,7 @@ function UserDashboard() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tasks/user', {
+      const response = await axios.get('https://inwardtask-server.onrender.com/api/tasks/user', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTasks(response.data);
@@ -24,7 +24,7 @@ function UserDashboard() {
 
   const fetchUsername = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/me', {
+      const response = await axios.get('https://inwardtask-server.onrender.com/api/auth/me', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setUsername(response.data.username);
@@ -41,7 +41,7 @@ function UserDashboard() {
 
   const handleTaskAction = async (taskId, action, forwardTo = null) => {
     try {
-      await axios.put(`http://localhost:5000/api/tasks/${taskId}/${action}`, 
+      await axios.put(`https://inwardtask-server.onrender.com/api/tasks/${taskId}/${action}`, 
         { forwardTo },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
