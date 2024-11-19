@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 // Use environment variable or fallback
-const mongooseUrl = process.env.MONGODB_URI || "mongodb+srv://workUsage:workusage@cluster0.ldmpa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-console.log(mongooseUrl);
+const mongooseUrl = process.env.MONGODB_URI;
+// console.log(mongooseUrl);
 
 // Connect to MongoDB
 mongoose.connect(mongooseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
