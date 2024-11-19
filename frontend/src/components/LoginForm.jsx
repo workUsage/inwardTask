@@ -19,7 +19,9 @@ function LoginForm() {
       console.error('Login error:', error);
     }
   };
-
+  const goLogin=()=>{
+    navigate('/');
+  }
   return (
     <div className="flex items-center justify-center min-h-screen">
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-12 pt-6 pb-8 mb-4 md:w-2/5">
@@ -59,7 +61,7 @@ function LoginForm() {
           </button>
         </div>
         <hr className='my-5'/>
-        <p className='text-center'>Haven't Account <a href="/register" className='text-blue-800 font-semibold'>register</a></p>
+        <p className='text-center'>Haven't Account <button href="/register" className='text-blue-800 font-semibold border-none' onClick={goLogin}>register</button></p>
         
       </form>
     </div>
