@@ -12,7 +12,7 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { username, password, userType });
+      await axios.post('https://inwardtask-server.onrender.com/api/auth/register', { username, password, userType });
       // Redirect to login page after successful registration
       navigate('/');
     } catch (error) {
