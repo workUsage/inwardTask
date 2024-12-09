@@ -14,7 +14,7 @@ function AdminDashboard() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('https://inwardtask-server.onrender.com/api/tasks', {
+      const response = await axios.get('http://localhost:5000/api/tasks', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTasks(response.data);
@@ -25,7 +25,7 @@ function AdminDashboard() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('https://inwardtask-server.onrender.com/api/auth/users', {
+      const response = await axios.get('http://localhost:5000/api/auth/users', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setUsers(response.data.filter(user => user.userType === 'table'));
@@ -42,7 +42,7 @@ function AdminDashboard() {
 
   const handleDownloadExcel = async () => {
     try {
-      const response = await axios.get('https://inwardtask-server.onrender.com/api/tasks/export', {
+      const response = await axios.get('http://localhost:5000/api/tasks/export', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         responseType: 'blob'
       });

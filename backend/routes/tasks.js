@@ -83,8 +83,7 @@ router.get('/export', auth, async (req, res) => {
         { header: 'Inward No', key: 'inwardNo', width: 15 },
         { header: 'Subject', key: 'subject', width: 30 },
         { header: 'Description', key: 'description', width: 50 },
-        { header: 'Start Date', key: 'startDate', width: 15 },
-        { header: 'End Date', key: 'endDate', width: 15 },
+        { header: 'Date', key: 'date', width: 15 },
         { header: 'Assigned To', key: 'assignedTo', width: 20 },
         { header: 'Status', key: 'status', width: 15 },
       ];

@@ -6,8 +6,7 @@ function TaskForm({ users, onTaskCreated }) {
     inwardNo: '',
     subject: '',
     description: '',
-    startDate: '',
-    endDate: '',
+    date: '',
     assignedTo: ''
   });
 
@@ -18,7 +17,7 @@ function TaskForm({ users, onTaskCreated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://inwardtask-server.onrender.com/api/tasks', task, {
+      await axios.post('http://localhost:5000/api/tasks', task, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       onTaskCreated();
@@ -26,8 +25,7 @@ function TaskForm({ users, onTaskCreated }) {
         inwardNo: '',
         subject: '',
         description: '',
-        startDate: '',
-        endDate: '',
+        date: '',
         assignedTo: ''
       });
     } catch (error) {
@@ -77,29 +75,17 @@ function TaskForm({ users, onTaskCreated }) {
         />
         </div>
         <div>
-        <label htmlFor="startDate" className='font-semibold'>Start Date</label>
+        <label htmlFor="date" className='font-semibold'>Date</label>
         <input
           type="date"
-          id='startDate'
-          name="startDate"
-          value={task.startDate}
+          id='date'
+          name="date"
+          value={task.date}
           onChange={handleChange}
           className="border p-2 rounded w-full"
           required
         />
         
-        </div>
-        <div>
-        <label htmlFor="endDate" className='font-semibold'>End Date</label>
-        <input
-        id='endDate'
-          type="date"
-          name="endDate"
-          value={task.endDate}
-          onChange={handleChange}
-          className="border p-2 rounded w-full"
-          required
-        />
         </div>
         <div className='col-span-2'>
         <label htmlFor="assignTo" className='font-semibold'>Assign To</label>

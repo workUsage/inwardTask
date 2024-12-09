@@ -40,8 +40,7 @@ function TaskList({ tasks, onAccept, onForward, onComplete, onFail }) {
             <th className="border p-2">Inward No</th>
             <th className="border p-2">Subject</th>
             <th className="border p-2">Description</th>
-            <th className="border p-2">Start Date</th>
-            <th className="border p-2">End Date</th>
+            <th className="border p-2">Date</th>
             <th className="border p-2">Status</th>
             <th className="border p-2">Actions</th>
           </tr>
@@ -52,8 +51,7 @@ function TaskList({ tasks, onAccept, onForward, onComplete, onFail }) {
               <td className="border p-2">{task.inwardNo}</td>
               <td className="border p-2">{task.subject}</td>
               <td className="border p-2">{task.description}</td>
-              <td className="border p-2">{new Date(task.startDate).toLocaleDateString()}</td>
-              <td className="border p-2">{new Date(task.endDate).toLocaleDateString()}</td>
+              <td className="border p-2">{new Date(task.date).toLocaleDateString()}</td>
               <td className="border p-2">{task.status}</td>
               <td className="border p-2">
                 {task.status === 'pending' && onAccept && (

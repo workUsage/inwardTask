@@ -12,7 +12,7 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://inwardtask-server.onrender.com/api/auth/login', { username, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userType', response.data.userType);
       navigate(response.data.userType === 'admin' ? '/admin' : '/user');

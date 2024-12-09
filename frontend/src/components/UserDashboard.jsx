@@ -41,7 +41,7 @@ function UserDashboard() {
 
   const handleTaskAction = async (taskId, action, forwardTo = null) => {
     try {
-      await axios.put(`https://inwardtask-server.onrender.com/api/tasks/${taskId}/${action}`, 
+      await axios.put(`http://localhost:5000/api/tasks/${taskId}/${action}`, 
         { forwardTo },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
